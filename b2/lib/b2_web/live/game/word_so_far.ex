@@ -20,7 +20,7 @@ defmodule B2Web.Game.WordSoFar do
 
   def render(assigns) do
     ~H"""
-    <div class="flex flex-col">
+    <div class="flex flex-col" phx-window-keyup="make_move">
       <%= state_name(@tally.game_state) %>
       <div class="flex">
         <%= for ch <- @tally.letters do %>

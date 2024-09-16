@@ -3,3 +3,22 @@
 @import "tailwindcss/utilities";
 
 /* This file is for your main application CSS */
+.hide-component {
+  opacity: 0.1;
+}
+svg path {
+  transition: opacity 0.5s;
+}
+
+.figure svg {
+  max-height: 60vh;
+}
+
+.turns-left {
+  display: inline-block;
+  position: relative;
+  top: -30vh;
+  margin-right: 20%;
+  max-width: 30%;
+  color: #552244;
+}

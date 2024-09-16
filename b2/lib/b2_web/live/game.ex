@@ -19,9 +19,14 @@ defmodule B2Web.Game do
     ~H"""
     <div>
       <.live_component module={__MODULE__.Figure} tally={assigns.tally} id={1} />
-      <.live_component module={__MODULE__.Alphabet} tally={assigns.tally} id={2} />
-      <.live_component module={__MODULE__.WordSoFar} tally={assigns.tally} id={3} />
+      <.live_component module={__MODULE__.Alphabet} tally={assigns.tally} game={assigns.game} id={2} />
+      <.live_component module={__MODULE__.WordSoFar} tally={assigns.tally} game={assigns.game} id={3} />
     </div>
     """
+  end
+
+  def handle_event("make_move", %{"key" => key}, socket) do
+    tally = Hangman.make_move(socket.assigns.game, key)
+    {:noreply, assign(socket, tally: tally)}
   end
 end
